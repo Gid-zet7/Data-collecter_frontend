@@ -28,6 +28,7 @@ function App() {
           <Route index element={<UsersList />} />
         </Route>
       </Route>
+      {/* End of dashboard route */}
     </Routes>
   );
 }
