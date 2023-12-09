@@ -16,7 +16,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
     // getDataForm queries to the dataform endpoint to GET data
     getDataForms: builder.query({
       query: () => ({
-        url: "/dataform",
+        url: "/dataforms",
         // We validate the status to make sure there is no error and we receive a 200 status
         validateStatus: (response, result) => {
           return response.status === 200 && !result.isError;
