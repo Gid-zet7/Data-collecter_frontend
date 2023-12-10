@@ -42,7 +42,9 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: "User", id: "LIST" }];
       },
     }),
+
     addNewUser: builder.mutation({
+      // We pass in initial data in the body as we query to the users endpoint
       query: (initialUserData) => ({
         url: "/users",
         method: "POST",
@@ -50,6 +52,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
           ...initialUserData,
         },
       }),
+      // This updates user list cached data
       invalidatesTags: [{ type: "User", id: "LIST" }],
     }),
     updateUser: builder.mutation({
@@ -60,6 +63,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
           ...initialUserData,
         },
       }),
+      // We specify the id of the user to invalidate that specific user
       invalidatesTags: (result, error, arg) => [{ type: "User", id: arg.id }],
     }),
     deleteUser: builder.mutation({
