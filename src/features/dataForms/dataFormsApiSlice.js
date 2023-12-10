@@ -43,6 +43,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
       },
     }),
     addNewDataForm: builder.mutation({
+      // We pass in initial data in the body as we query to the dataform endpoint
       query: (initialDataFormData) => ({
         url: "/dataform",
         method: "POST",
@@ -50,6 +51,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
           ...initialDataFormData,
         },
       }),
+      // This updates dataform list cached data
       invalidatesTags: [{ type: "DataForm", id: "LIST" }],
     }),
     updateDataForm: builder.mutation({
@@ -60,6 +62,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
           ...initialDataFormData,
         },
       }),
+      // We specify the id of the dataform to invalidate that specific form
       invalidatesTags: (result, error, arg) => [
         { type: "DataForm", id: arg.id },
       ],
