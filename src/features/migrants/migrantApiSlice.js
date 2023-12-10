@@ -43,6 +43,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
       },
     }),
     addNewMigrant: builder.mutation({
+      // We pass in initial data in the body as we query to the migrant endpoint
       query: (initialMigrantData) => ({
         url: "/migrant",
         method: "POST",
@@ -50,6 +51,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
           ...initialMigrantData,
         },
       }),
+      // This updates migrant list cached data
       invalidatesTags: [{ type: "Migrant", id: "LIST" }],
     }),
     updateMigrant: builder.mutation({
@@ -60,6 +62,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
           ...initialMigrantData,
         },
       }),
+      // We specify the id of the migrant to invalidate that specific migrant
       invalidatesTags: (result, error, arg) => [
         { type: "Migrant", id: arg.id },
       ],
