@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAddNewUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
-import { ROLES } from "../../../config/roles";
+import { ROLES } from "../../config/roles";
 
 const USER_REGEX = /^[A-z]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
@@ -18,8 +18,6 @@ const NewUserForm = () => {
   const [roles, setRoles] = useState(["User"]);
   const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
-
-  // const [confirmPwd, setConfirmPwd] = useState("")
 
   useEffect(() => {
     setValidUsername(USER_REGEX.test(username));
@@ -53,10 +51,8 @@ const NewUserForm = () => {
 
   const onEmailChanged = (e) => setEmail(e.target.value);
 
-  // const onConfirmPwdChanged = e => setConfirmPwd(e.target.value)
-
   const canSave =
-    [roles.length, username, password].every(Boolean) && !isLoading;
+    [roles.length, validUsername, validPassword].every(Boolean) && !isLoading;
 
   const onSaveUserClicked = async (e) => {
     e.preventDefault();
@@ -81,7 +77,6 @@ const NewUserForm = () => {
   const errClass = isError ? "errmsg" : "offscreen";
   const validUserClass = !validUsername ? "form__input--incomplete" : "";
   const validPwdClass = !validPassword ? "form__input--incomplete" : "";
-  // const validRolesClass = !Boolean(roles.length) ? "form__input--incomplete" : ""
 
   const content = (
     <>
