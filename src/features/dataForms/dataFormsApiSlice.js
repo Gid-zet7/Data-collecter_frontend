@@ -16,7 +16,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
     // getDataForm queries to the dataform endpoint to GET data
     getDataForms: builder.query({
       query: () => ({
-        url: "/dataforms",
+        url: "/questions",
         // We validate the status to make sure there is no error and we receive a 200 status
         validateStatus: (response, result) => {
           return response.status === 200 && !result.isError;
@@ -45,7 +45,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
     addNewDataForm: builder.mutation({
       // We pass in initial data in the body as we query to the dataform endpoint
       query: (initialDataFormData) => ({
-        url: "/dataform",
+        url: "/questions",
         method: "POST",
         body: {
           ...initialDataFormData,
@@ -56,7 +56,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
     }),
     updateDataForm: builder.mutation({
       query: (initialDataFormData) => ({
-        url: "/dataform",
+        url: "/questions",
         method: "PATCH",
         body: {
           ...initialDataFormData,
@@ -69,7 +69,7 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
     }),
     deleteDataForm: builder.mutation({
       query: ({ id }) => ({
-        url: "/dataform",
+        url: "/questions",
         method: "DELETE",
         body: { id },
       }),
