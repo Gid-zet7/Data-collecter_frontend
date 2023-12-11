@@ -1,6 +1,7 @@
 import { useGetDataFormsQuery } from "./dataFormsApiSlice";
 import { PulseLoader } from "react-spinners";
 import DataForm from "./DataForm";
+// import { useEffect } from "react";
 
 const DataFormsList = () => {
   const {
@@ -11,11 +12,15 @@ const DataFormsList = () => {
     isError,
     error,
     // useGetDataFormsQuery is the hook that RTK query automatically created for us
-  } = useGetDataFormsQuery(undefined, {
-    pollingInterval: 60000,
+  } = useGetDataFormsQuery("dataFormsList", {
+    pollingInterval: 1000000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
   });
+
+  // useEffect(() => {
+  //   console.log(dataforms);
+  // });
 
   let content;
 
