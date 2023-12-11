@@ -9,6 +9,10 @@ import MigrantsList from "./features/migrants/MigrantsList";
 import UsersList from "./features/users/UsersList";
 import DataFormsList from "./features/dataForms/DataFormsList";
 import NewDataForm from "./features/dataForms/NewDataForm";
+import NewMigrantForm from "./features/migrants/NewMigrantForm";
+import NewUserForm from "./features/users/NewUserForm";
+import EditUser from "./features/users/EditUser";
+import EditMigrant from "./features/migrants/EditMigrant";
 
 function App() {
   return (
@@ -21,13 +25,17 @@ function App() {
         <Route index path="welcome" element={<Welcome />} />
         <Route path="dataforms">
           <Route index element={<DataFormsList />} />
-          <Route path="newform" element={<NewDataForm />} />
+          <Route path="addform" element={<NewDataForm />} />
         </Route>
         <Route path="migrants">
           <Route index element={<MigrantsList />} />
+          <Route path="addmigrant" element={<NewMigrantForm />} />
+          <Route path="editmigrant/:id" element={<EditMigrant />} />
         </Route>
         <Route path="users">
           <Route index element={<UsersList />} />
+          <Route path="adduser" element={<NewUserForm />} />
+          <Route path="edituser/:id" element={<EditUser />} />
         </Route>
       </Route>
       {/* End of dashboard route */}
