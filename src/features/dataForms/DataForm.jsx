@@ -22,15 +22,12 @@ const DataForm = ({ dataformId }) => {
     })
   );
 
-  // useEffect(() => {
-  //   console.log(data);
-  // });
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isSuccess) {
       setData("");
-      navigate("/dashboard/dataforms");
+      navigate("/dashboard");
     }
   }, [isSuccess, navigate]);
 
