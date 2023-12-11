@@ -16,7 +16,8 @@ const Migrant = ({ migrantId }) => {
   const navigate = useNavigate();
 
   if (migrant) {
-    const handleEdit = () => navigate(`/dashboard/migrants/${migrantId}`);
+    const handleEdit = () =>
+      navigate(`/dashboard/migrants/editmigrant/${migrantId}`);
 
     return (
       <tr>
