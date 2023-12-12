@@ -1,5 +1,12 @@
+import { Link } from "react-router-dom";
+
 const Public = () => {
-  return <p>This is the public page</p>;
+  return (
+    <>
+      <Link to={"/login"}>Login</Link>
+      <Link to={"/signup"}>Sign up</Link>
+    </>
+  );
 };
 
 export default Public;
