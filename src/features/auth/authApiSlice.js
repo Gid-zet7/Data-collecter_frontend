@@ -1,4 +1,4 @@
-import { apiSlice } from "../../../app/api/apiSlice";
+import { apiSlice } from "../../app/api/apiSlice";
 import { logOut, setCredentials } from "./authSlice";
 
 export const authApiSlice = apiSlice.injectEndpoints({
@@ -19,18 +19,22 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body: { ...credentials },
       }),
     }),
+    // We send a post request to the server to logout
     sendLogout: builder.mutation({
       query: () => ({
         url: "/auth/logout",
         method: "POST",
       }),
+
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
-          //const { data } =
+          // queryfulfilled checks if our query was fulfilled
+          // const { data } =
           await queryFulfilled;
-          //console.log(data)
+          // console.log(data);
           dispatch(logOut());
 
+          // Clears the cache and query subscriptions
           setTimeout(() => {
             dispatch(apiSlice.util.resetApiState());
           }, 1000);
@@ -39,6 +43,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
         }
       },
     }),
+    // We send a get request to the server to receive refresh token
     refresh: builder.mutation({
       query: () => ({
         url: "/auth/refresh",

@@ -12,7 +12,7 @@ const UsersList = () => {
     error,
     // useGetUsersQuery is the hook that RTK query automatically created for us
   } = useGetUsersQuery("usersList", {
-    pollingInterval: 60000,
+    pollingInterval: 60000, //Refreshes the data every 60 seconds
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
   });
