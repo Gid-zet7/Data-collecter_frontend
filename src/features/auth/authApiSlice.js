@@ -25,7 +25,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
         url: "/auth/logout",
         method: "POST",
       }),
-
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           // queryfulfilled checks if our query was fulfilled
