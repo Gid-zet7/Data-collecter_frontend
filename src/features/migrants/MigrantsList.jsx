@@ -11,7 +11,7 @@ const MigrantsList = () => {
     isError,
     error,
     // useGetMigrantsQuery is the hook that RTK query automatically created for us
-  } = useGetMigrantsQuery(undefined, {
+  } = useGetMigrantsQuery("migrantsList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
