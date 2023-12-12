@@ -11,7 +11,7 @@ const UsersList = () => {
     isError,
     error,
     // useGetUsersQuery is the hook that RTK query automatically created for us
-  } = useGetUsersQuery(undefined, {
+  } = useGetUsersQuery("usersList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
