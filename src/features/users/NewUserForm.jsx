@@ -80,11 +80,7 @@ const NewUserForm = () => {
 
   const content = (
     <>
-      <section
-        id="new_user_form"
-        className="form-container"
-        style={{ marginTop: "9rem" }}
-      >
+      <section id="new_user_form" className="form-container">
         <p className={errClass}>{error?.data?.message}</p>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
