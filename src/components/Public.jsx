@@ -21,7 +21,6 @@ const Public = () => {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // gap: "2rem",
     width: "clamp(20rem, 45vw, 60rem)",
     padding: "0 1rem",
     fontSize: ".8rem",
