@@ -5,8 +5,6 @@ import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import { PulseLoader } from "react-spinners";
 import usePersist from "../../hooks/usePersist";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSignIn } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const userRef = useRef();
