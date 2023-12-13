@@ -89,7 +89,7 @@ const Login = () => {
         </p>
         <form id="login_form" onSubmit={handleSubmit}>
           <div id="auth_header">
-            <h1>Login</h1>
+            <h2>Login</h2>
           </div>
           <label htmlFor="username">Username:</label>
           <input
