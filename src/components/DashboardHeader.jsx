@@ -4,6 +4,7 @@ import { useSendLogoutMutation } from "../features/auth/authApiSlice";
 import { useEffect } from "react";
 import { PulseLoader } from "react-spinners";
 import useAuth from "../hooks/useAuth";
+import { AccountCircle, Logout } from "@mui/icons-material";
 
 const DATAFORMS_REGEX = /^dashboard\/dataforms(\/)?$/;
 const MIGRANTS_REGEX = /^dashboard\/migrants(\/)?$/;
@@ -27,7 +28,7 @@ const DashboardHeader = () => {
   // These functions calls navigate to navigate the user to the dashboard/protected pages
   const onNewDataFormClicked = () => navigate("/dashboard/dataforms/addform");
   const onNewUserClicked = () => navigate("/dashboard/users/adduser");
-  const onUsersClicked = () => navigate("/dashbard/users");
+  const onUsersClicked = () => navigate("/dashboard/users");
   const onNewMigrantClicked = () => navigate("/dashboard/migrants/addmigrant");
   const onMigrantsClicked = () => navigate("/dashboard/migrants");
   const onResearchFormsClicked = () => navigate("/dashboard/dataforms");
@@ -35,7 +36,22 @@ const DashboardHeader = () => {
 
   // Create logout button
   const logoutButton = (
-    <Button onClick={onLogoutButtonClicked}> Log out</Button>
+    <Button
+      style={{
+        fontSize: ".7rem",
+        backgroundColor: "#ec4a6e",
+        color: "#000",
+        fontWeight: "800",
+      }}
+      onClick={onLogoutButtonClicked}
+    >
+      Log out
+      <Logout
+        style={{
+          marginLeft: 3,
+        }}
+      />
+    </Button>
   );
 
   // Check if user is admin or researcher and not on the dataforms page then create/display new Research Form btn
@@ -43,7 +59,9 @@ const DashboardHeader = () => {
   if (isAdmin || isResearcher) {
     if (!DATAFORMS_REGEX.test(pathname)) {
       newformButton = (
-        <Button onClick={onNewDataFormClicked}>New Research form</Button>
+        <Button style={{ fontSize: ".7rem" }} onClick={onNewDataFormClicked}>
+          New Research form
+        </Button>
       );
     }
   }
@@ -53,7 +71,10 @@ const DashboardHeader = () => {
   if (isAdmin || isResearcher) {
     if (!DATAFORMS_REGEX.test(pathname)) {
       dataFormsButton = (
-        <Button onClick={onResearchFormsClicked}> Research Forms</Button>
+        <Button style={{ fontSize: ".7rem" }} onClick={onResearchFormsClicked}>
+          {" "}
+          Research Forms
+        </Button>
       );
     }
   }
@@ -63,7 +84,9 @@ const DashboardHeader = () => {
   if (isAdmin || isResearcher) {
     if (!MIGRANTS_REGEX.test(pathname)) {
       newMigrantButton = (
-        <Button onClick={onNewMigrantClicked}>Add Migrant </Button>
+        <Button style={{ fontSize: ".7rem" }} onClick={onNewMigrantClicked}>
+          Add Migrant{" "}
+        </Button>
       );
     }
   }
@@ -73,7 +96,9 @@ const DashboardHeader = () => {
   if (isAdmin || isResearcher) {
     if (!MIGRANTS_REGEX.test(pathname)) {
       migrantsButton = (
-        <Button onClick={onMigrantsClicked}>View Migrants</Button>
+        <Button style={{ fontSize: ".7rem" }} onClick={onMigrantsClicked}>
+          View Migrants
+        </Button>
       );
     }
   }
@@ -82,7 +107,11 @@ const DashboardHeader = () => {
   let newUserButton = null;
   if (isAdmin) {
     if (!USERS_REGEX.test(pathname)) {
-      newUserButton = <Button onClick={onNewUserClicked}>Add User </Button>;
+      newUserButton = (
+        <Button style={{ fontSize: ".7rem" }} onClick={onNewUserClicked}>
+          Add User{" "}
+        </Button>
+      );
     }
   }
 
@@ -90,7 +119,11 @@ const DashboardHeader = () => {
   let usersButton = null;
   if (isAdmin) {
     if (!USERS_REGEX.test(pathname)) {
-      usersButton = <Button onClick={onUsersClicked}>View Users </Button>;
+      usersButton = (
+        <Button style={{ fontSize: ".7rem" }} onClick={onUsersClicked}>
+          View Users
+        </Button>
+      );
     }
   }
 
@@ -129,7 +162,6 @@ const DashboardHeader = () => {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // gap: "2rem",
     width: "clamp(20rem, 45vw, 60rem)",
     padding: "0 1rem",
     fontSize: ".8rem",
@@ -146,12 +178,15 @@ const DashboardHeader = () => {
       <p className={errClass}>{error?.data?.message} </p>
 
       <header className="dash_header">
-        <div className={`dash-header__container`} style={divStyles}>
-          <Link to="/dash/posts" style={linkStyles}>
-            <h1 className="dash-header__title">Migrant Flow</h1>
+        <div className="dash-header__container" style={divStyles}>
+          <Link to="/dashboad/welcome" style={linkStyles}>
+            <h1 className="dash-header__title">
+              {" "}
+              Migrant <span style={{ color: "blue" }}>Flow.</span>{" "}
+            </h1>
           </Link>
           <div className="user-icon">
-            User Icon
+            <AccountCircle style={{ width: "2.5rem", height: "3rem" }} />
             {/* <FontAwesomeIcon icon={faUser} /> */}
             <svg
               height="12px"
