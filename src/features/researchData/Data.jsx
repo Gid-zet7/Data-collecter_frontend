@@ -12,13 +12,11 @@ const Data = ({ dataId }) => {
 
   if (data) {
     return (
-      <tr>
-        {/* <td className={`table__cell `}>
-          <Link to={`/dashboard/users/${user.id}`}>{user.username} </Link>
-        </td> */}
+      <div>
+       
         <td className={`table__cell `}>{data.question}</td>
         <td className={`table__cell `}>{data.response}</td>
-      </tr>
+      </div>
     );
   } else return null;
 };
