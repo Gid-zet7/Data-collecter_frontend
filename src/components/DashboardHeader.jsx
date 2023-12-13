@@ -187,7 +187,6 @@ const DashboardHeader = () => {
           </Link>
           <div className="user-icon">
             <AccountCircle style={{ width: "2.5rem", height: "3rem" }} />
-            {/* <FontAwesomeIcon icon={faUser} /> */}
             <svg
               height="12px"
               id="arrow"
