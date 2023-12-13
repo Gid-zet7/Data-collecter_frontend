@@ -15,12 +15,10 @@ import MenuItem from "@mui/material/MenuItem";
 import {
   ShortText,
   Subject,
-  MoreVert,
   FilterNone,
-  AddCircleOutline,
-  TextFields,
   Close,
   CheckBox,
+  Delete,
 } from "@mui/icons-material";
 import "../../index.css";
 
@@ -35,13 +33,9 @@ const NewDataForm = () => {
 
   const [questions, setQuestions] = useState([
     {
-      questionText: `Have you ever experience trafficking ?`,
+      questionText: "",
       questionType: "radio",
-      options: [
-        { optionText: "Yes" },
-        { optionText: "No" },
-        { optionText: "Prefer not to specify" },
-      ],
+      options: [{ optionText: "" }, { optionText: "" }, { optionText: "" }],
       open: true,
       required: false,
     },
@@ -117,9 +111,9 @@ const NewDataForm = () => {
     setQuestions([
       ...questions,
       {
-        questionText: "Type your question here",
+        questionText: "",
         questionType: "radio",
-        options: [{ optionText: "option 1" }],
+        options: [{ optionText: "" }],
         open: true,
         required: false,
       },
@@ -155,13 +149,10 @@ const NewDataForm = () => {
     }
   }, [isSuccess, navigate]);
 
-  const migrant_id = "657271d15f504808a7e30067";
-
   const onSaveFormClicked = async (e) => {
     e.preventDefault();
 
     await addNewDataForm({
-      migrant_id,
       formTitle,
       formDesc,
       questions,
@@ -248,7 +239,7 @@ const NewDataForm = () => {
                   <input
                     type="text"
                     className="question"
-                    placeholder="Question"
+                    placeholder="eg. Have you ever experienced trafficking?"
                     name="question"
                     value={question.questionText}
                     onChange={(e) => {
@@ -304,10 +295,7 @@ const NewDataForm = () => {
                         style={{ marginRight: "10px" }}
                       />
                     ) : (
-                      <ShortText
-                        style={{ marginRight: "10px" }}
-                        className="loooos"
-                      />
+                      <ShortText style={{ marginRight: "10px" }} />
                     )}
                     <div>
                       <input
@@ -352,12 +340,6 @@ const NewDataForm = () => {
                       }
                       label={
                         <div>
-                          <input
-                            type="text"
-                            className="text_input"
-                            style={{ fontSize: "13px", width: "60px" }}
-                            placeholder="Add another"
-                          ></input>
                           <Button
                             size="small"
                             style={{
@@ -378,20 +360,6 @@ const NewDataForm = () => {
                   ""
                 )}
                 <div className="add_footer">
-                  <div className="add_question_bottom_left">
-                    <Button
-                      size="small"
-                      style={{
-                        textTransform: "none",
-                        color: "#4285f4",
-                        fontSize: "13px",
-                        fontWeight: "600",
-                      }}
-                    >
-                      Answer key
-                    </Button>
-                  </div>
-
                   <div className="add_question_bottom">
                     <IconButton
                       aria-label="Copy"
@@ -408,7 +376,7 @@ const NewDataForm = () => {
                         deleteQuestion(i);
                       }}
                     >
-                      Delete
+                      <Delete />
                     </IconButton>
 
                     <span style={{ color: "#5f6368", fontSize: "13px" }}>
@@ -425,16 +393,18 @@ const NewDataForm = () => {
                       />
                     </IconButton>
 
-                    <IconButton>
-                      <MoreVert />
-                    </IconButton>
+                    <div className="question_edit">
+                      <Button
+                        className="edit"
+                        onClick={addQuestionField}
+                        variant="contained"
+                      >
+                        Add
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </AccordionDetails>
-              <div className="question_edit">
-                <AddCircleOutline className="edit" onClick={addQuestionField} />
-                <TextFields className="edit" />
-              </div>
             </div>
           ) : (
             " "
@@ -480,7 +450,7 @@ const NewDataForm = () => {
               onClick={onSaveFormClicked}
               disabled={!canSave}
             >
-              Save
+              Save Form
             </Button>
           </div>
         </div>
