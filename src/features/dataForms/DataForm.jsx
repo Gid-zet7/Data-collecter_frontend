@@ -32,12 +32,10 @@ const DataForm = ({ dataformId }) => {
   }, [isSuccess, navigate]);
 
   const onResponseChanged = (response, question, index) => {
-    console.log(index);
     let newData = [...data];
     newData[index].question = question;
     newData[index].response = response;
     setData(newData);
-    console.log(newData);
   };
 
   const onSubmitForm = async (e) => {
@@ -55,13 +53,29 @@ const DataForm = ({ dataformId }) => {
 
     return (
       <>
-        <form>
+        <form
+          className="data-form"
+          style={{
+            border: "1px solid #000",
+            marginBottom: "35px",
+            width: "clamp(15rem, 50vw, 60rem)",
+          }}
+        >
           <p className={errClass}>{error?.data?.message}</p>
-          <span>Form Title</span>
-          <p>{dataform.form_title} </p>
-          <span>Form Description</span>
-          <p>{dataform.form_desc} </p>
-          <hr />
+          <div
+            className="form_header"
+            style={{
+              border: "3px solid #000",
+              padding: "1rem",
+              borderRadius: "8px",
+            }}
+          >
+            <h1>Title: {dataform.form_title} </h1>
+            <span>Description</span>
+            <p>{dataform.form_desc} </p>
+            <hr />
+          </div>
+
           {dataform.questions.map((question, i) => {
             return (
               <div key={i} className={`question_container ${i}`}>
@@ -105,7 +119,7 @@ const DataForm = ({ dataformId }) => {
           <Button
             variant="contained"
             color="primary"
-            style={{ fontSize: "14px" }}
+            style={{ fontSize: "14px", maxWidth: "20rem" }}
             onClick={onSubmitForm}
             // disabled={!canSave}
           >
