@@ -52,7 +52,12 @@ const DataFormsList = () => {
     content = (
       <div
         className="div div--dataforms"
-        style={{ marginTop: "9rem", padding: "2rem" }}
+        style={{
+          marginTop: "9rem",
+          padding: "2rem",
+          display: "flex",
+          flexDirection: "column",
+        }}
       >
         {divContent}
       </div>
