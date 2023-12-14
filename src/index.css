@@ -68,6 +68,10 @@ section {
   /* margin-bottom: 2rem; */
 }
 
+.section_one__title {
+  font-size: clamp(3rem, 3.4vw, 6rem);
+}
+
 .bg-img {
   background: url("./assets/unsplash.jpg");
   background-position: center;
@@ -246,14 +250,22 @@ table th {
 }
 
 .question_form {
-  min-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.section_form {
+ width: 90%;
 }
 
 .question_form_top {
   display: flex;
   flex-direction: column;
   background-color: white;
-  border-top: 8px solid blue;
+  /* border-top: 8px solid blue; */
+  border: 2px solid;
   border-radius: 8px;
   padding: 30px 25px;
   text-transform: capitalize;
@@ -297,7 +309,7 @@ table th {
 }
 
 .MuiAccordionDetails-root {
-  width: 80%;
+  width: 95%;
 }
 
 .add_quesion_top {
@@ -319,7 +331,7 @@ table th {
   outline: none;
   color: black;
   height: 40px;
-  margin-right: 10px;
+  margin-right: .1rem;
   line-height: 10px;
   padding: 10px;
   background-color: #f4f4f9;
@@ -356,7 +368,7 @@ table th {
   outline: none;
   border: none;
   height: 2.5rem;
-  width: clamp(15rem, 3vw, 30.5rem);
+  width: clamp(10rem, 3vw, 30.5rem);
   font-size: .9rem;
   font-weight: 400;
   letter-spacing: .2px;
@@ -368,12 +380,9 @@ table th {
 }
 
 .question_edit {
-  width: 2.3rem;
-  border: 0.5px solid;
   padding: 1px;
   display: flex;
   color: black;
-  border: 1.5px solid #f4f4f9;
   border-radius: 3px;
   background: transparent;
 }
@@ -381,6 +390,16 @@ table th {
 .edit {
   color: #5f6368;
   padding: 8px 5px;
+}
+
+.saved_questions {
+  height: 10rem;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+.saved_questions > p {
+  font-size: 2rem;
 }
 
 /* Footer */
@@ -398,9 +417,25 @@ footer > div {
   margin-left: 1rem;
 }
 
+.reveal {
+  position: relative;
+  transform: translateY(250px);
+  opacity: 0;
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.reveal.active {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
 @media screen and (min-width: 700px) {
   .section_three {
     flex-direction: row;
+  }
+
+  .saved_questions_para {
+    font-size: 1.5rem;
   }
 }
 
@@ -416,3 +451,7 @@ footer > div {
     background-color: #f9f9f9;
   }
 }
+
+/* .table--migrants tbody tr td:nth-child(2) {
+  background-color: #213547;
+} */
