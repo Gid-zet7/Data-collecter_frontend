@@ -8,7 +8,7 @@ const migrantsAdapter = createEntityAdapter({});
 // then we retrieve the initialState if it exists in the migrantAdapter
 const initialState = migrantsAdapter.getInitialState();
 
-console.log(migrantsAdapter);
+// console.log(migrantsAdapter);
 
 // We inject the endpoints into the apiSlice
 export const migrantsApiSlice = apiSlice.injectEndpoints({
@@ -25,7 +25,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
       //  Since mongoDb gives us and underscore id(_.id) We transform our user id property to make sure our normalised id array works out fine
       transformResponse: (responseData) => {
         const loadedMigrants = responseData.map((migrant) => {
-          console.log(migrant);
+          // console.log(migrant);
           migrant.id = migrant._id;
           return migrant;
         });
@@ -45,7 +45,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
     addNewMigrant: builder.mutation({
       // We pass in initial data in the body as we query to the migrant endpoint
       query: (initialMigrantData) => ({
-        url: "/migrant",
+        url: "/migrants",
         method: "POST",
         body: {
           ...initialMigrantData,
@@ -56,7 +56,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
     }),
     updateMigrant: builder.mutation({
       query: (initialMigrantData) => ({
-        url: "/migrant",
+        url: "/migrants",
         method: "PATCH",
         body: {
           ...initialMigrantData,
@@ -69,7 +69,7 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
     }),
     deleteMigrant: builder.mutation({
       query: ({ id }) => ({
-        url: "/migrant",
+        url: "/migrants",
         method: "DELETE",
         body: { id },
       }),
