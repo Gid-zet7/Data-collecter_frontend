@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import EditMigrantForm from "./EditMigrantForm";
 import { useGetMigrantsQuery } from "./migrantApiSlice";
 import { PulseLoader } from "react-spinners";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const EditMigrant = () => {
   const { id } = useParams();
@@ -13,10 +13,10 @@ const EditMigrant = () => {
     }),
   });
 
-  useEffect(() => {
-    console.log(id);
-    console.log(migrants);
-  });
+  // useEffect(() => {
+  //   console.log(id);
+  //   console.log(migrants);
+  // });
 
   if (!migrants)
     return (
