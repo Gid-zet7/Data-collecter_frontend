@@ -8,7 +8,7 @@ const dataAdapter = createEntityAdapter({});
 // then we retrieve the initialState if it exists in the dataAdapter
 const initialState = dataAdapter.getInitialState();
 
-console.log(dataAdapter);
+// console.log(dataAdapter);
 
 // We inject the endpoints into the apiSlice
 export const dataApiSlice = apiSlice.injectEndpoints({
@@ -25,7 +25,7 @@ export const dataApiSlice = apiSlice.injectEndpoints({
       //  Since mongoDb gives us and underscore id(_.id) We transform our user id property to make sure our normalised id array works out fine
       transformResponse: (responseData) => {
         const loadedData = responseData.map((data) => {
-          console.log(data);
+          // console.log(data);
           data.id = data._id;
           return data;
         });
