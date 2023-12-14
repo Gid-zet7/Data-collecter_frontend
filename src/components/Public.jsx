@@ -1,5 +1,6 @@
 import { Login } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
 
 const Public = () => {
   const headerStyles = {
@@ -59,7 +60,30 @@ const Public = () => {
     maxWidth: "30rem",
     borderRadius: 8,
     backgroundColor: "#fff",
+    marginRight: "1rem",
   };
+
+  const navigate = useNavigate();
+
+  const onNewDataFormClicked = () => navigate("/dataforms/addform");
+
+  window.addEventListener("scroll", reveal);
+
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var revealTop = reveals[i].getBoundingClientRect().top;
+      var revealPoint = 150;
+
+      if (revealTop < windowHeight - revealPoint) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
 
   return (
     <>
@@ -99,7 +123,7 @@ const Public = () => {
             </div>
           </ul>
         </header>
-        <section className="section__two" style={secondSection}>
+        <section className="section__one" style={secondSection}>
           <div
             style={{
               display: "flex",
@@ -108,7 +132,7 @@ const Public = () => {
               maxWidth: "65rem",
             }}
           >
-            <h1>
+            <h1 className="section_one__title">
               Gathering Accurate Data to Enhance{" "}
               <span style={{ color: "blue", lineHeight: 1.2 }}>
                 Migration Management{" "}
@@ -128,11 +152,12 @@ const Public = () => {
             }}
           >
             <p style={{ lineHeight: 1.5, fontSize: "1.5rem" }}>
-              Migrant flow is a user-friendly, safe platform for gathering data
-              that is especially intended for migration management in Ghana.
-              With Migrant flow, researchers can design their own research forms
-              and gather qualitative and quantitative data to help manage
-              migration in Ghana.
+              Migrant <span style={{ color: "blue" }}>Flow</span> is a
+              user-friendly, safe platform for gathering data that is especially
+              intended for migration management in Ghana. With Migrant{" "}
+              <span style={{ color: "blue" }}>Flow</span>, researchers can
+              design their own research forms and gather qualitative and
+              quantitative data to help manage migration in Ghana.
             </p>
           </div>
         </section>
@@ -144,6 +169,7 @@ const Public = () => {
           <div className="section_three">
             <div className="bg-img" style={{ flex: 1 }}></div>
             <p
+              className="reveal"
               style={{
                 lineHeight: 1.5,
                 fontSize: "clamp(1rem, 2vw, 1.3rem)",
@@ -181,12 +207,20 @@ const Public = () => {
               <p style={{ lineHeight: 1.5, fontSize: "1.3rem" }}>
                 Set Research Questions with multiple choice answers
               </p>
+              <Button onClick={onNewDataFormClicked} variant="contained">
+                Try it out!
+              </Button>
             </div>
             <div className="section_wrapper" style={cardStyles}>
               <h3>Visualize Data with easy clicks</h3>
-              <p style={{ lineHeight: 1.5, fontSize: "1.3rem" }}>
-                Set Research Questions with multiple choice answers
-              </p>
+              <iframe
+                width="325"
+                height="371"
+                seamless
+                frameBorder="0"
+                scrolling="no"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuceqzDxkCzSi0ye8275wjfwqnZp3Z3MuJsjVaet_GWOrFEvBhPyvnl4ASWvIemKmvl__r1QeGjBt-/pubchart?oid=2025359781&amp;format=interactive"
+              ></iframe>
             </div>
           </div>
         </section>
