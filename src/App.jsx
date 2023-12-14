@@ -17,6 +17,7 @@ import PersistLogin from "./features/auth/PersistLogin";
 import RequireAuth from "./features/auth/RequireAuth";
 import { ROLES } from "./config/roles";
 import Prefetch from "./features/auth/Prefetch";
+import DataList from "./features/researchData/DataList";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
+        <Route path="dataforms">
+          <Route index element={<DataFormsList />} />
+          <Route path="addform" element={<NewDataForm />} />
+        </Route>
 
         {/* Protected Routes */}
         <Route element={<PersistLogin />}>
@@ -34,6 +39,9 @@ function App() {
             <Route element={<Prefetch />}>
               <Route path="dashboard" element={<DashboardLayout />}>
                 <Route index path="welcome" element={<Welcome />} />
+                <Route path="data">
+                  <Route index element={<DataList />} />
+                </Route>
                 <Route path="dataforms">
                   <Route index element={<DataFormsList />} />
                   <Route path="addform" element={<NewDataForm />} />
