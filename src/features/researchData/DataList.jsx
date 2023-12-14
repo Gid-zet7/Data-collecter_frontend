@@ -2,6 +2,7 @@ import { useGetDataQuery } from "./DataApiSlice";
 import { PulseLoader } from "react-spinners";
 import Data from "./Data";
 // import { useEffect } from "react";
+import DataChart from "./Chart";
 
 const DataList = () => {
   const {
@@ -42,24 +43,36 @@ const DataList = () => {
     // Destructure ids from the data(now called data)
     const { ids } = data;
 
+    // ids.map((id) => console.log(entities[id]));
+
     const tableContent =
       // Provide the ids to the Data component
       ids?.length && ids.map((dataId) => <Data key={dataId} dataId={dataId} />);
 
+    // const chartContent =
+    //   ids?.length &&
+    //   ids.map((dataId) => <DataChart key={dataId} dataId={dataId} />);
+
     content = (
-      <table
-        className="table table--users"
-        style={{ marginTop: "9rem", padding: "2rem" }}
-      >
-        <thead>
-          <tr>
-            <th>Migrant</th>
-            <th>Questions</th>
-            <th>Responses</th>
-          </tr>
-        </thead>
-        <tbody>{tableContent}</tbody>
-      </table>
+      <>
+        <table
+          className="table table--migrants"
+          style={{ marginTop: "9rem", padding: "2rem" }}
+        >
+          <thead>
+            <tr>
+              <th>Migrant</th>
+              <th>Questions</th>
+              <th>Responses</th>
+              <th>No. of Responses</th>
+            </tr>
+          </thead>
+          <tbody>{tableContent}</tbody>
+        </table>
+        <div>
+          <DataChart />
+        </div>
+      </>
     );
   }
   return content;
