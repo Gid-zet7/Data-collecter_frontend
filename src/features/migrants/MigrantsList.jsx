@@ -56,6 +56,7 @@ const MigrantsList = () => {
             <th>Migration Status</th>
             <th>Phone</th>
             <th>Email</th>
+            <th>Edit</th>
           </tr>
         </thead>
         <tbody>{tableContent}</tbody>
