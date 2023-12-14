@@ -73,7 +73,7 @@ const NewMigrantForm = () => {
     address,
   };
 
-  const onSaveUserClicked = async (e) => {
+  const onSaveMigrantClicked = async (e) => {
     e.preventDefault();
     if (canSave) {
       await addNewMigrant({
@@ -81,6 +81,7 @@ const NewMigrantForm = () => {
         last_name: lastname,
         gender,
         nationality,
+        date_of_birth: dateOfBirth,
         contact,
         migration_status: migrationStatus,
       });
@@ -93,14 +94,14 @@ const NewMigrantForm = () => {
 
   const content = (
     <>
-      <section id="new_user_form" className="form-container">
+      <section id="new_migrant_form" className="form-container">
         <p className={errClass}>{error?.data?.message}</p>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
           <h2>New Migrant</h2>
         </div>
 
-        <form className="form" onSubmit={onSaveUserClicked}>
+        <form className="form" onSubmit={onSaveMigrantClicked}>
           <label htmlFor="first_name">First name:</label>
           <input
             className={`form__input ${validFirstNameClass}`}
@@ -139,7 +140,7 @@ const NewMigrantForm = () => {
             className={"form__input "}
             id="date_of_birth"
             name="date_of_birth"
-            type="text"
+            type="date"
             autoComplete="off"
             value={dateOfBirth}
             onChange={onDateOfBirthChanged}
@@ -173,7 +174,7 @@ const NewMigrantForm = () => {
             className={"form__input"}
             id="phone"
             name="phone"
-            type="text"
+            type="number"
             value={phone}
             onChange={onPhoneChanged}
           />

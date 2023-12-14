@@ -10,13 +10,18 @@ const Data = ({ dataId }) => {
     }),
   });
 
+  // useEffect(() => {
+  //   console.log(data);
+  // });
+
   if (data) {
     return (
-      <div>
-       
-        <td className={`table__cell `}>{data.question}</td>
-        <td className={`table__cell `}>{data.response}</td>
-      </div>
+      <tr>
+        <td>{data.data.migrant ? data.data.migrant : "Unknown"}</td>
+        <td>{data.data.question}</td>
+        <td>{data.data.response}</td>
+        <td>{data.data.value}</td>
+      </tr>
     );
   } else return null;
 };
