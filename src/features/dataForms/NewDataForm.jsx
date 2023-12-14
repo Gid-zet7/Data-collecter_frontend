@@ -168,7 +168,6 @@ const NewDataForm = () => {
   function questionsUI() {
     return questions.map((question, i) => (
       <>
-        <p className={errClass}>{errContent}</p>
         <Accordion
           expanded={questions[i].open}
           className={questions[i].open ? "add_border" : ""}
@@ -185,12 +184,13 @@ const NewDataForm = () => {
             {!questions[i].open ? (
               <div className="saved_questions">
                 <Typography
+                  className="saved_questions_para"
                   style={{
-                    fontSize: "15px",
-                    fontWeight: "400",
+                    fontSize: "1rem",
+                    fontWeight: "500",
                     letterSpacing: ".1px",
                     lineHeight: "24px",
-                    paddingBottom: "8px",
+                    paddingBottom: "25px",
                   }}
                 >
                   {i + 1}. {questions[i].questionText}
@@ -205,7 +205,9 @@ const NewDataForm = () => {
                           <input
                             type={question.questionType}
                             color="primary"
-                            style={{ marginRight: "3px" }}
+                            style={{
+                              marginRight: "8px",
+                            }}
                             required={question.type}
                             disabled
                           />
@@ -213,7 +215,7 @@ const NewDataForm = () => {
                         label={
                           <Typography
                             style={{
-                              fontSize: "13px",
+                              fontSize: ".9rem",
                               fontWeight: "400",
                               letterSpacing: ".2px",
                               lineHeight: "20px",
@@ -246,10 +248,13 @@ const NewDataForm = () => {
                       changeQuestion(e.target.value, i);
                     }}
                   />
-                  {/* <CropOriginal /> */}
                   <Select
                     className="select"
-                    style={{ color: "#5f6368", fontSize: "13px" }}
+                    style={{
+                      color: "#5f6368",
+                      fontSize: ".8rem",
+                      width: "clamp(3rem, 10vw, 8rem)",
+                    }}
                     value="select"
                   >
                     <MenuItem
@@ -399,7 +404,7 @@ const NewDataForm = () => {
                         onClick={addQuestionField}
                         variant="contained"
                       >
-                        Add
+                        Add Field
                       </Button>
                     </div>
                   </div>
@@ -416,8 +421,9 @@ const NewDataForm = () => {
   return (
     <>
       <div className="question_form">
+        <p className={errClass}>{errContent}</p>
         <br></br>
-        <div className="section">
+        <div className="section_form">
           <div className="question_title_section">
             <div className="question_form_top">
               <input
