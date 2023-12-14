@@ -26,6 +26,7 @@ const DashboardHeader = () => {
   }, [isSuccess, navigate]);
 
   // These functions calls navigate to navigate the user to the dashboard/protected pages
+  const onNewDataListClicked = () => navigate("/dashboard/data");
   const onNewDataFormClicked = () => navigate("/dashboard/dataforms/addform");
   const onNewUserClicked = () => navigate("/dashboard/users/adduser");
   const onUsersClicked = () => navigate("/dashboard/users");
@@ -53,6 +54,16 @@ const DashboardHeader = () => {
       />
     </Button>
   );
+
+  // Check if user is admin or researcher  create/display data list btn
+  let dataListButton = null;
+  if (isAdmin || isResearcher) {
+    dataListButton = (
+      <Button style={{ fontSize: ".7rem" }} onClick={onNewDataListClicked}>
+        Data
+      </Button>
+    );
+  }
 
   // Check if user is admin or researcher and not on the dataforms page then create/display new Research Form btn
   let newformButton = null;
@@ -139,6 +150,7 @@ const DashboardHeader = () => {
     // else we display the buttons
     buttonContent = (
       <>
+        {dataListButton}
         {newformButton}
         {dataFormsButton}
         <hr />
