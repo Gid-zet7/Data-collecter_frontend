@@ -10,6 +10,7 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
-  devTools: true,
+  // Change to true to enable redux dev tools
+  devTools: false,
 });
 setupListeners(store.dispatch);
