@@ -11,7 +11,7 @@ const MIGRANTS_REGEX = /^dashboard\/migrants(\/)?$/;
 const USERS_REGEX = /^dashboard\/users(\/)?$/;
 
 const DashboardHeader = () => {
-  const { isAdmin, isResearcher } = useAuth();
+  const { isAdmin, isResearcher, Username } = useAuth();
 
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -33,7 +33,7 @@ const DashboardHeader = () => {
   const onNewMigrantClicked = () => navigate("/dashboard/migrants/addmigrant");
   const onMigrantsClicked = () => navigate("/dashboard/migrants");
   const onResearchFormsClicked = () => navigate("/dashboard/dataforms");
-  const onLogoutButtonClicked = () => sendLogout();
+  // const onLogoutButtonClicked = () => sendLogout();
 
   // Create logout button
   const logoutButton = (
@@ -44,7 +44,7 @@ const DashboardHeader = () => {
         color: "#000",
         fontWeight: "800",
       }}
-      onClick={onLogoutButtonClicked}
+      onClick={() => sendLogout()}
     >
       Log out
       <Logout
@@ -153,13 +153,13 @@ const DashboardHeader = () => {
         {dataListButton}
         {newformButton}
         {dataFormsButton}
-        <hr />
+        {/* <hr /> */}
         {newMigrantButton}
-        <hr />
+        {/* <hr /> */}
         {migrantsButton}
-        <hr />
+        {/* <hr /> */}
         {newUserButton}
-        <hr />
+        {/* <hr /> */}
         {usersButton}
 
         {logoutButton}
@@ -199,6 +199,7 @@ const DashboardHeader = () => {
           </Link>
           <div className="user-icon">
             <AccountCircle style={{ width: "2.5rem", height: "3rem" }} />
+            {Username}
             <svg
               height="12px"
               id="arrow"
