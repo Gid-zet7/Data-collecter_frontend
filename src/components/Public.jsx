@@ -54,15 +54,6 @@ const Public = () => {
     color: "#fff",
   };
 
-  const cardStyles = {
-    padding: "1rem",
-    boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
-    maxWidth: "30rem",
-    borderRadius: 8,
-    backgroundColor: "#fff",
-    marginRight: "1rem",
-  };
-
   const navigate = useNavigate();
 
   const onNewDataFormClicked = () => navigate("/dataforms/addform");
@@ -123,7 +114,7 @@ const Public = () => {
             </div>
           </ul>
         </header>
-        <section className="section__one" style={secondSection}>
+        <section className="section__one--public" style={secondSection}>
           <div
             style={{
               display: "flex",
@@ -141,7 +132,10 @@ const Public = () => {
             </h1>
           </div>
         </section>
-        <section style={{ marginBottom: "4rem" }}>
+        <section
+          className="section__two--public"
+          style={{ marginBottom: "4rem" }}
+        >
           <div
             className="section_wrapper"
             style={{
@@ -161,7 +155,10 @@ const Public = () => {
             </p>
           </div>
         </section>
-        <section style={{ marginBottom: "8rem" }}>
+        <section
+          className="section__three--public"
+          style={{ marginBottom: "8rem" }}
+        >
           <h2 style={{ fontSize: "1.8rem" }}>
             {" "}
             <span style={{ color: "blue" }}>Migration</span> Management
@@ -192,17 +189,18 @@ const Public = () => {
           </div>
         </section>
 
-        <section style={{ backgroundColor: "#1d2541", height: "50vh" }}>
+        <section
+          className="section__four--public"
+          style={{
+            backgroundColor: "#1d2541",
+            padding: "1rem",
+          }}
+        >
           <h2 style={{ color: "#fff", fontSize: "1.8rem" }}>
             Create research forms
           </h2>
-          <div
-            className="section_wrapper"
-            style={{
-              display: "flex",
-            }}
-          >
-            <div className="section_wrapper" style={cardStyles}>
+          <div className="section__four--container">
+            <div className="card__public">
               <h3>Flexibility of creating your own research forms</h3>
               <p style={{ lineHeight: 1.5, fontSize: "1.3rem" }}>
                 Set Research Questions with multiple choice answers
@@ -211,15 +209,15 @@ const Public = () => {
                 Try it out!
               </Button>
             </div>
-            <div className="section_wrapper" style={cardStyles}>
-              <h3>Visualize Data with easy clicks</h3>
+            <div className="card__public reveal">
+              <h3>Visualize Data instantly!</h3>
               <iframe
-                width="325"
-                height="371"
+                width="clamp(200px, 5vw, 371px)"
+                height="330"
                 seamless
-                frameBorder="0"
+                // frameborder="0"
                 scrolling="no"
-                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuceqzDxkCzSi0ye8275wjfwqnZp3Z3MuJsjVaet_GWOrFEvBhPyvnl4ASWvIemKmvl__r1QeGjBt-/pubchart?oid=2025359781&amp;format=interactive"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTuceqzDxkCzSi0ye8275wjfwqnZp3Z3MuJsjVaet_GWOrFEvBhPyvnl4ASWvIemKmvl__r1QeGjBt-/pubchart?oid=1410371586&amp;format=interactive"
               ></iframe>
             </div>
           </div>
