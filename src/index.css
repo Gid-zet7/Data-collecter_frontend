@@ -68,6 +68,12 @@ section {
   /* margin-bottom: 2rem; */
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .section_one__title {
   font-size: clamp(3rem, 3.4vw, 6rem);
 }
@@ -88,6 +94,21 @@ section {
   max-width: 80rem;
   color: #1d2541;
       
+}
+
+.section__four--container {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__public {
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  max-width: clamp(25rem, 5vw, 30rem);
+  border-radius: 8px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+
 }
 
 #flex-row_section {
@@ -178,7 +199,7 @@ input {
   position: absolute;
   align-items: center;
   left: -2.5rem;
-  top: 2.5rem;
+  top: 3rem;
   width: 10rem;
   display: none;
   padding: .5rem;
@@ -402,6 +423,39 @@ table th {
   font-size: 2rem;
 }
 
+.auth {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+main {
+  position: relative;
+  min-height: 100vh;
+}
+
+main:last-child{
+  padding-bottom: 30rem;
+}
+
+.login__form--container {
+  position: relative;
+  /* padding-bottom: 30rem; */
+}
+
+main > table {
+  padding-bottom: 30rem;
+}
+
+.migrants__table-container {
+  padding-bottom: 30rem;
+}
+
+.migrants__table-container {
+  padding-bottom: 30rem;
+}
+
 /* Footer */
 footer {
   display: flex;
@@ -409,6 +463,7 @@ footer {
   bottom: 0rem;
   color: #fff;
   width: 100vw;
+  /* margin-top: 10rem; */
   padding: 2rem 2.5rem;
   background-color: #000;
 }
@@ -417,11 +472,16 @@ footer > div {
   margin-left: 1rem;
 }
 
+.login_footer {
+  display: none;
+  
+}
+
 .reveal {
   position: relative;
-  transform: translateY(250px);
+  transform: translateY(100px);
   opacity: 0;
-  transition: opacity 2s ease, transform 2s ease;
+  transition: opacity .2s ease, transform .1s ease;
 }
 
 .reveal.active {
@@ -434,8 +494,52 @@ footer > div {
     flex-direction: row;
   }
 
+  .section__four--container {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: "1rem";
+  }
+
+  .card__public {
+    margin-right: 2em;
+  }
+
   .saved_questions_para {
     font-size: 1.5rem;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form {
+    /* padding-left: 10rem;
+    padding-right: 10rem; */
+    width: 30%;
+  }
+
+  /* .form-section_public {
+    flex-direction: row;
+  } */
+
+  .login_footer {
+    display: block;
+    display: flex;
+    position: absolute;
+    bottom: 0rem;
+    color: #fff;
+    width: 100vw;
+    /* margin-top: 10rem; */
+    padding: 2rem 2.5rem;
+    background-color: #000;
+  }
+
+  .reveal {
+    transform: translateY(250px);
+    transition: opacity 2s ease, transform 2s ease;
   }
 }
 
@@ -450,6 +554,8 @@ footer > div {
   button {
     background-color: #f9f9f9;
   }
+  
+
 }
 
 /* .table--migrants tbody tr td:nth-child(2) {
