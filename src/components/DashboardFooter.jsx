@@ -1,7 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import useAuth from "../hooks/useAuth";
+import { Home } from "@mui/icons-material";
 
 const DashFooter = () => {
   const { Username, status } = useAuth();
@@ -9,30 +8,17 @@ const DashFooter = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const redirectToHome = () => navigate("/dash/welcome");
+  const redirectToHome = () => navigate("/dashboard/welcome");
 
   let redirectBtn = null;
-  if (pathname !== "/dash") {
+  if (pathname !== "/dashboard") {
     redirectBtn = (
-      <button className="dash-footer" title="Home" onClick={redirectToHome}>
-        Home Icon
-        {/* <FontAwesomeIcon icon={faHouse} /> */}
-      </button>
+      <Home className="dash-footer" title="Home" onClick={redirectToHome} />
     );
   }
 
-  const footerStyles = {
-    display: "flex",
-    position: "absolute",
-    bottom: 0,
-    color: "#fff",
-    width: "100vw",
-    padding: "2rem 2.5rem",
-    backgroundColor: "#000",
-  };
-
   const content = (
-    <footer style={footerStyles}>
+    <footer>
       <div>
         <h6>{Username} </h6>
         <h6>{status} </h6>
