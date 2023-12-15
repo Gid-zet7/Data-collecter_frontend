@@ -72,7 +72,7 @@ const Login = () => {
     );
 
   const content = (
-    <section
+    <div
       id="login"
       className="auth"
       style={{
@@ -133,7 +133,7 @@ const Login = () => {
           </div>
         </form>
       </div>
-      <footer>
+      <footer className="login_footer">
         <div className="about-footer">
           <h4>About Migrant flow</h4>
           <h6>About us</h6>
@@ -146,7 +146,7 @@ const Login = () => {
           <h6>Email</h6>
         </div>
       </footer>
-    </section>
+    </div>
   );
 
   return content;
