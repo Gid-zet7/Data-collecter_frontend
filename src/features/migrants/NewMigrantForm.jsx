@@ -94,7 +94,7 @@ const NewMigrantForm = () => {
 
   const content = (
     <>
-      <section id="new_migrant_form" className="form-container">
+      <div id="new_migrant_form" className="form-container">
         <p className={errClass}>{error?.data?.message}</p>
 
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -210,7 +210,7 @@ const NewMigrantForm = () => {
             </button>
           </div>
         </form>
-      </section>
+      </div>
     </>
   );
 
