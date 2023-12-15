@@ -20,7 +20,8 @@ import {
   CheckBox,
   Delete,
 } from "@mui/icons-material";
-import "../../index.css";
+// import "../../index.css";
+import useAuth from "../../hooks/useAuth";
 
 const NewDataForm = () => {
   const [addNewDataForm, { isLoading, isSuccess, isError, error }] =
@@ -30,6 +31,8 @@ const NewDataForm = () => {
 
   const [formTitle, setFormTitle] = useState("Untitled");
   const [formDesc, setFormDesc] = useState("form description");
+
+  const { Username } = useAuth();
 
   const [questions, setQuestions] = useState([
     {
@@ -153,6 +156,7 @@ const NewDataForm = () => {
     e.preventDefault();
 
     await addNewDataForm({
+      username: Username,
       formTitle,
       formDesc,
       questions,
