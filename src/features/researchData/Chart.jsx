@@ -15,21 +15,15 @@ const DataChart = () => {
     ".table--migrants tbody tr td:nth-child(4)"
   );
 
-  //   console.log(ques.forEach((que) => console.log(que.innerText)));
   const quesArr = [];
   ques.forEach((que) => quesArr.push(que.innerText));
-  console.log(quesArr);
 
   const resArr = [];
   res.forEach((re) => resArr.push(re.innerText));
-  console.log(resArr);
 
   const valArr = [];
   value.forEach((val) => valArr.push(val.innerText));
-  console.log(valArr);
 
-  console.log(quesArr);
-  console.log(valArr);
   return (
     <>
       <div

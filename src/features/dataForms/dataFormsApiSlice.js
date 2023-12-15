@@ -8,8 +8,6 @@ const dataFormsAdapter = createEntityAdapter({});
 // then we retrieve the initialState if it exists in the dataFormsAdapter
 const initialState = dataFormsAdapter.getInitialState();
 
-// console.log(dataFormsAdapter);
-
 // We inject the endpoints into the apiSlice
 export const dataFormsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -25,7 +23,6 @@ export const dataFormsApiSlice = apiSlice.injectEndpoints({
       //  Since mongoDb gives us and underscore id(_.id) We transform our user id property to make sure our normalised id array works out fine
       transformResponse: (responseData) => {
         const loadedDataForms = responseData.map((form) => {
-          // console.log(form);
           form.id = form._id;
           return form;
         });

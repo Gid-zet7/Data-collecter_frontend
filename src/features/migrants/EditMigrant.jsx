@@ -13,11 +13,6 @@ const EditMigrant = () => {
     }),
   });
 
-  // useEffect(() => {
-  //   console.log(id);
-  //   console.log(migrants);
-  // });
-
   if (!migrants)
     return (
       <div className="loader-container">

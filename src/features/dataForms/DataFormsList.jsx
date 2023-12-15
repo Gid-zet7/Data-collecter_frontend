@@ -18,10 +18,6 @@ const DataFormsList = () => {
     refetchOnMountOrArgChange: true,
   });
 
-  // useEffect(() => {
-  //   console.log(dataforms);
-  // });
-
   let content;
 
   // We check if isLoading is true then we set the content to a pulse loader

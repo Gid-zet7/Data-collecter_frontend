@@ -8,7 +8,6 @@ import { Outlet } from "react-router-dom";
 
 const Prefetch = () => {
   useEffect(() => {
-    // console.log("subscribing");
     // We create a manual subscription to get access to the state and prevents it from expiring in the default 60 seconds
     store.dispatch(
       dataApiSlice.util.prefetch("getData", "dataList", {

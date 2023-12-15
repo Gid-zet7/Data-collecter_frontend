@@ -10,10 +10,6 @@ const Data = ({ dataId }) => {
     }),
   });
 
-  // useEffect(() => {
-  //   console.log(data);
-  // });
-
   if (data) {
     return (
       <tr>

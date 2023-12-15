@@ -8,8 +8,6 @@ const migrantsAdapter = createEntityAdapter({});
 // then we retrieve the initialState if it exists in the migrantAdapter
 const initialState = migrantsAdapter.getInitialState();
 
-// console.log(migrantsAdapter);
-
 // We inject the endpoints into the apiSlice
 export const migrantsApiSlice = apiSlice.injectEndpoints({
   // getMigrants queries to the migrants endpoint to GET data
@@ -25,7 +23,6 @@ export const migrantsApiSlice = apiSlice.injectEndpoints({
       //  Since mongoDb gives us and underscore id(_.id) We transform our user id property to make sure our normalised id array works out fine
       transformResponse: (responseData) => {
         const loadedMigrants = responseData.map((migrant) => {
-          // console.log(migrant);
           migrant.id = migrant._id;
           return migrant;
         });

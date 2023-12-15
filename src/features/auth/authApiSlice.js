@@ -30,7 +30,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
           // queryfulfilled checks if our query was fulfilled
           // const { data } =
           await queryFulfilled;
-          // console.log(data);
           dispatch(logOut());
 
           // Clears the cache and query subscriptions
@@ -51,7 +50,6 @@ export const authApiSlice = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { dispatch, queryFulfilled }) {
         try {
           const { data } = await queryFulfilled;
-          // console.log(data);
           const { accessToken } = data;
           dispatch(setCredentials({ accessToken }));
         } catch (err) {

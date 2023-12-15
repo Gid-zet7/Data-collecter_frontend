@@ -22,7 +22,6 @@ const PersistLogin = () => {
     // eslint-disable-next-line no-undef
     if (effectRan.current === true || process.env.NODE_ENV !== "development") {
       const verifyRefreshToken = async () => {
-        // console.log("verifying refresh token");
         try {
           // const response =
           await refresh();
@@ -44,11 +43,9 @@ const PersistLogin = () => {
 
   if (!persist) {
     // psersist: no
-    console.log("no persist");
     content = <Outlet />;
   } else if (isLoading) {
     // persist: yes, token: no
-    console.log("loading");
     content = (
       <div className="loader-container">
         <PulseLoader color={"#000"} className="pulse-loader" />
@@ -56,7 +53,6 @@ const PersistLogin = () => {
     );
   } else if (isError) {
     // persist: yes, token: no
-    console.log("error");
     content = (
       <p>
         {`${error?.data?.message} - `}
@@ -65,12 +61,9 @@ const PersistLogin = () => {
     );
   } else if (isSuccess && trueSuccess) {
     // persist: yes, token: yes
-    console.log("success");
     content = <Outlet />;
   } else if (token && isUninitialized) {
     // persist: yes, token: yes
-    console.log("token and uninit");
-    // console.log(isUninitialized)
     content = <Outlet />;
   }
 

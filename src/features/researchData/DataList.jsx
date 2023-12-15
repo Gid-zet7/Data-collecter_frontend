@@ -19,10 +19,6 @@ const DataList = () => {
     refetchOnMountOrArgChange: true,
   });
 
-  // useEffect(() => {
-  //   console.log(data);
-  // });
-
   let content;
 
   // We check if isLoading is true then we set the content to a pulse loader
@@ -42,8 +38,6 @@ const DataList = () => {
   if (isSuccess) {
     // Destructure ids from the data(now called data)
     const { ids } = data;
-
-    // ids.map((id) => console.log(entities[id]));
 
     const tableContent =
       // Provide the ids to the Data component
