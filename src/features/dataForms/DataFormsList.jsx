@@ -56,6 +56,7 @@ const DataFormsList = () => {
           marginTop: "9rem",
           padding: "2rem",
           display: "flex",
+          alignItems: "center",
           flexDirection: "column",
         }}
       >
