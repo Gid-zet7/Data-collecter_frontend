@@ -43,24 +43,26 @@ const MigrantsList = () => {
       ids.map((migrantId) => <Migrant key={migrantId} migrantId={migrantId} />);
 
     content = (
-      <table
-        className="table table--migrants"
-        style={{ marginTop: "9rem", padding: "2rem" }}
-      >
-        <thead>
-          <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Gender</th>
-            <th>Nationality</th>
-            <th>Migration Status</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>{tableContent}</tbody>
-      </table>
+      <div className="migrants__table-container">
+        <table
+          className="table table--migrants"
+          style={{ marginTop: "9rem", padding: "2rem" }}
+        >
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Nationality</th>
+              <th>Migration Status</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>{tableContent}</tbody>
+        </table>
+      </div>
     );
   }
   return content;
