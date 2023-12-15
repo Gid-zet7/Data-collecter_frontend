@@ -108,7 +108,7 @@ const EditMigrantForm = ({ migrant }) => {
   const content = (
     <>
       <p className={errClass}>{errContent} </p>
-      <section
+      <div
         id="new_user_form"
         className="form-container"
         style={{ marginTop: "9rem" }}
@@ -228,7 +228,7 @@ const EditMigrantForm = ({ migrant }) => {
             </button>
           </div>
         </form>
-      </section>
+      </div>
       <div>
         <h2>Delete Migrant</h2>
         <div>
