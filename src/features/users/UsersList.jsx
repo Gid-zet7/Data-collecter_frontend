@@ -42,19 +42,21 @@ const UsersList = () => {
       ids?.length && ids.map((userId) => <User key={userId} userId={userId} />);
 
     content = (
-      <table
-        className="table table--users"
-        style={{ marginTop: "9rem", padding: "2rem" }}
-      >
-        <thead>
-          <tr>
-            <th>Username</th>
-            <th>Roles</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>{tableContent}</tbody>
-      </table>
+      <div className="migrants__table-container">
+        <table
+          className="table table--users"
+          style={{ marginTop: "9rem", padding: "2rem" }}
+        >
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Roles</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>{tableContent}</tbody>
+        </table>
+      </div>
     );
   }
   return content;
