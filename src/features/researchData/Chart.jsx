@@ -1,4 +1,5 @@
-// import { Chart as ChartJS } from "chart.js/auto";
+/* eslint-disable no-unused-vars */
+import { Chart as ChartJS } from "chart.js/auto";
 import { Bar } from "react-chartjs-2";
 
 const DataChart = () => {
@@ -27,11 +28,12 @@ const DataChart = () => {
   value.forEach((val) => valArr.push(val.innerText));
   console.log(valArr);
 
-  // console.log(quesArr);
-  // console.log(valArr);
+  console.log(quesArr);
+  console.log(valArr);
   return (
     <>
       <div
+        className="Chart"
         style={{
           maxWidth: "50rem",
           marginTop: "5rem",
@@ -44,7 +46,7 @@ const DataChart = () => {
             labels: quesArr,
             datasets: [
               {
-                label: resArr,
+                label: "resArr",
                 data: valArr,
                 backgroundColor: [
                   "rgba(43, 63, 229,0.8",
@@ -54,10 +56,10 @@ const DataChart = () => {
                 ],
                 borderRadius: 5,
               },
-              // {
-              //   label: "Irregular Migrants",
-              //   data: [90, 80, 60, 50, 60],
-              // },
+              {
+                label: "Irregular Migrants",
+                data: resArr,
+              },
             ],
           }}
         />
